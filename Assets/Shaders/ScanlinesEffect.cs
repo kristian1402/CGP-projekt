@@ -12,7 +12,7 @@ public class ScanlinesEffect : MonoBehaviour {
   public float hardness = 0.9f;
 
   [Range(0, 1)]
-  public float displacementSpeed = 0.1f;
+  public float Speed = 0.1f;
 
   protected Material material {
     get {
@@ -29,7 +29,7 @@ public class ScanlinesEffect : MonoBehaviour {
       return;
     material.SetFloat("_LineWidth", lineWidth);
     material.SetFloat("_Hardness", hardness);
-    material.SetFloat("_Speed", displacementSpeed);
+    material.SetFloat("_Speed", Speed);
     Graphics.Blit(source, destination, material, 0);
   }
 
