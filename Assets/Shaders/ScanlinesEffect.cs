@@ -14,6 +14,15 @@ public class ScanlinesEffect : MonoBehaviour {
   [Range(-1, 1)]
   public float Speed = 0.1f;
 
+  [Range(0, 255)]
+  public float Red = 255;
+
+  [Range(0, 255)]
+  public float Green = 255;
+
+  [Range(0, 255)]
+  public float Blue = 255;
+
   protected Material material {
     get {
       if (_material == null) {
@@ -30,6 +39,9 @@ public class ScanlinesEffect : MonoBehaviour {
     material.SetFloat("_LineWidth", lineWidth);
     material.SetFloat("_Hardness", hardness);
     material.SetFloat("_Speed", Speed);
+    material.SetFloat("_Red", Red/255);
+    material.SetFloat("_Green", Green/255);
+    material.SetFloat("_Blue", Blue/255);
     Graphics.Blit(source, destination, material, 0);
   }
 

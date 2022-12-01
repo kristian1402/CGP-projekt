@@ -224,6 +224,9 @@ MonoBehaviour:
   lineWidth: 4
   hardness: 0.9
   Speed: 0.1
+  Red: 255
+  Green: 255
+  Blue: 255
 --- !u!1001 &1268518776
 PrefabInstance:
   m_ObjectHideFlags: 0
