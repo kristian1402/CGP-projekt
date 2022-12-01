@@ -5,7 +5,8 @@
          _MainTex("_Color", 2D) = "white" {}
          _LineWidth("Line Width", Float) = 4
          _Hardness("Hardness", Float) = 0.9
-         _Speed("Speed", Range(0,1)) = 0.1
+         _Speed("Speed", Range(-1,1)) = 0.1
+		 _Color("Color", color) = (1,1,1,0)
      }
 	
      SubShader 
@@ -50,10 +51,10 @@
 	         half4 color = tex2D(_MainTex, i.uv);
 	         fixed lineSize = _ScreenParams.y*0.005; //sets the size of the lines by taking the screens y value and multiplying it 
 	         float displacement = ((_Time.y*1000)*_Speed)%_ScreenParams.y; //Moves the lines downward by using time and the variable speed
-	         float ps = displacement+(i.scr_pos.y * _ScreenParams.y / i.scr_pos.w); //sets the shader at the center of the screen
+	         float ps = displacement+(i.scr_pos.y * _ScreenParams.y / i.scr_pos.w); 
 			
 			//Returns the shader
-	         return ((int)(ps / floor(_LineWidth*lineSize)) % 2 == 0) ? color : color * float4(_Hardness,_Hardness,_Hardness,1);
+	         return ((int)(ps / floor(_LineWidth*lineSize)) % 2 == 0) ? color : color * float4(color.x*_Hardness,color.y*_Hardness,color.z*_Hardness,1);
 	     }
 	 
 	     ENDCG

@@ -11,7 +11,7 @@ public class ScanlinesEffect : MonoBehaviour {
   [Range(0, 1)]
   public float hardness = 0.9f;
 
-  [Range(0, 1)]
+  [Range(-1, 1)]
   public float Speed = 0.1f;
 
   protected Material material {
